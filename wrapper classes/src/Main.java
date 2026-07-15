@@ -37,6 +37,20 @@ public class Main {
             System.out.println("É verdadeiro");
         }
 
+        // Autoboxing
+        int idade = 25;
+        Integer idadeWrapper = idade; // int -> Integer
+
+        System.out.println("Autoboxing:");
+        System.out.println(idadeWrapper);
+
+        // Unboxing
+        Integer pontos = 100;
+        int pontosPrimitivo = pontos; // Integer -> int
+
+        System.out.println("\nUnboxing:");
+        System.out.println(pontosPrimitivo);
+
 
     }
 }

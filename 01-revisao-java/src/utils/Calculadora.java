@@ -1,5 +1,11 @@
+package utils;
+
 public class Calculadora {
-    public static double soma(double a, double b){
+    // construtor privado porque não faz sentido deixar
+    // instanciar a classe utilitária
+    private Calculadora() {}
+
+    public static int somar(int a, int b) {
         return a + b;
     }
 }
