@@ -81,11 +81,20 @@ Se existem 3 testes ele faz isso:
 //    calculadora = null;
 // }
 
+//JUnit Test Suite - é uma forma de agrupar vários testes/classes de teste para executá-los juntos.
+// Testes do sistema
+//│
+//├── CalculadoraTest
+//├── UsuarioTest
+//├── PedidoTest
+//└── PagamentoTest
+
 class CalculadoraTest {
 
     private Calculadora calculadora;
     private static StringBuilder resultados = new StringBuilder();
 
+    // Setup
     @BeforeEach
     void configuraCalculadora(){
         this.calculadora = new Calculadora();
@@ -131,6 +140,7 @@ class CalculadoraTest {
         resultados.append("Teste parametrizado: PASSOU\n");
     }
 
+    // Teardown
     @AfterAll
     static void exportarResultados() {
         try (FileWriter arquivo = new FileWriter("resultado-testes.txt")) {
