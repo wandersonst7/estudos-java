@@ -1,10 +1,9 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,6 +65,7 @@ Se existem 3 testes ele faz isso:
 class CalculadoraTest {
 
     private Calculadora calculadora;
+    private static StringBuilder resultados = new StringBuilder();
 
     @BeforeEach
     void configuraCalculadora(){
@@ -76,6 +76,7 @@ class CalculadoraTest {
     @DisplayName("Teste de soma")
     void testSoma(){
         assertEquals(2, this.calculadora.somar(1,1));
+        resultados.append("Teste de soma: PASSOU\n");
     }
 
     @Test
@@ -84,18 +85,21 @@ class CalculadoraTest {
     void testSub(){
 //      Verifica igualdade: (esperado, resultado)
         assertEquals(1, this.calculadora.subtrair(2,1));
+        resultados.append("Teste de Desabilitado: PASSOU\n");
     }
 
     @Test
     @DisplayName("Teste de Divisão Por Zero")
     void testDivisaoPorZero(){
         assertThrows(ArithmeticException.class, () -> this.calculadora.dividir(10,0));
+        resultados.append("Teste de Divisão Por Zero: PASSOU\n");
     }
 
     @Test
     @DisplayName("Teste Falha Propositalmente")
     void testFalhaProposital(){
         fail();
+        resultados.append("Teste Falha Propositalmente: PASSOU\n");
     }
 
     @ParameterizedTest
@@ -105,6 +109,19 @@ class CalculadoraTest {
     @DisplayName("Teste parametrizado maior valor")
     void testMaiorValor(int a, int b, int c, int d){
         assertEquals(3, this.calculadora.maiorValor(new int[]{a, b, c, d}));
+        resultados.append("Teste parametrizado: PASSOU\n");
+    }
+
+    @AfterAll
+    static void exportarResultados() {
+        try (FileWriter arquivo = new FileWriter("resultado-testes.txt")) {
+            arquivo.write("RESULTADO DOS TESTES\n");
+            arquivo.write("====================\n\n");
+            arquivo.write(resultados.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

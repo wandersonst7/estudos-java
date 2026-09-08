@@ -1,0 +1,6 @@
+RESULTADO DOS TESTES
+====================
+
+Teste de Divisão Por Zero: PASSOU
+Teste de soma: PASSOU
+Teste parametrizado: PASSOU
