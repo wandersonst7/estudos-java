@@ -60,7 +60,26 @@ Se existem 3 testes ele faz isso:
 // possuindo seu próprio estado e não dependendo da ordem
 // ou do resultado de outros testes.
 
+// OUTROS CONCEITOS:
+// JUnit Test Class - É a classe que contém os testes.
+// JUnit Runner - é o componente responsável por executar os testes. (JUNIT 4) - (JUNIT5 usa JUnit Platform e engines)
 
+// Setup e Teardown - São os procedimentos de preparação e limpeza dos testes.
+// Setup - É preparar o ambiente antes do teste.
+
+// ex:
+// @BeforeEach
+// void setup() {
+//    calculadora = new Calculadora();
+// }
+
+// Teardown - É fazer a limpeza depois do teste.
+
+// ex:
+// @AfterEach
+// void teardown() {
+//    calculadora = null;
+// }
 
 class CalculadoraTest {
 
