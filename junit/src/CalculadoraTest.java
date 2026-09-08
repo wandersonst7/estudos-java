@@ -53,6 +53,16 @@ Se existem 3 testes ele faz isso:
 
 // fail() - força o teste a falhar.
 
+// CONCEITOS
+// Teste de software é a execução de um código de forma controlada
+// para verificar se seu comportamento está de acordo com o esperado.
+
+// Isolamento de testes: cada teste deve ser independente dos demais,
+// possuindo seu próprio estado e não dependendo da ordem
+// ou do resultado de outros testes.
+
+
+
 class CalculadoraTest {
 
     private Calculadora calculadora;
